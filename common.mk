@@ -30,10 +30,6 @@ PRODUCT_PACKAGES += \
     libaudioutils \
     libaudiohw_legacy
 
-# BlueZ a2dp Audio HAL module
-PRODUCT_PACKAGES += \
-    audio.a2dp.default
-
 # BlueZ test tools
 PRODUCT_PACKAGES += \
     hciconfig \
@@ -56,8 +52,7 @@ PRODUCT_PACKAGES += \
     TQS_D_1.7_127x.ini \
     crda \
     regulatory.bin \
-    calibrator \
-    busybox
+    calibrator 
 
 # Wifi Direct and WPAN
 PRODUCT_PACKAGES += \
@@ -78,19 +73,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     evtest \
-    camera_test \
-    Camera \
-    CameraOMAP4 \
-    Superuser \
-    su \
     DockAudio \
     parse_hdmi_edid
-
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory \
-    FileManager \
-    MusicFX \
-    Apollo
 
 # Permissions files
 PRODUCT_COPY_FILES += \
@@ -110,17 +94,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml
 
 # Prebuilts
 PRODUCT_COPY_FILES += \
     $(COMMON_FOLDER)/prebuilt/bin/strace:system/bin/strace \
     $(COMMON_FOLDER)/prebuilt/bin/omapconf:system/bin/omapconf \
     $(COMMON_FOLDER)/prebuilt/bin/omapconf-dump.sh:system/bin/omapconf-dump.sh
-
-# Phone settings
-PRODUCT_COPY_FILES += \
-    $(COMMON_FOLDER)/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 # Kexec files
 ifeq ($(BOARD_USES_KEXEC),true)
