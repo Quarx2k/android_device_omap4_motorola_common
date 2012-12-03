@@ -8,6 +8,8 @@ SS_PART=emstorage
 IMG_TYPE=vfat
 SS_MNT=/ss
 SS_DIR=$SS_MNT/safestrap
+if [ -d ss/safestrap ]; 
+then 
 
 # check for SS loopdevs
 if [ ! -f "$BLOCK_DIR/loop-system" ]; then
@@ -50,4 +52,4 @@ if [ ! -f "$BLOCKNAME_DIR/systemorig" ]; then
 		/sbin/bbx ln -s $BLOCKNAME_DIR/cacheorig $BLOCKNAME_DIR/cache
 	fi
 fi
-
+fi

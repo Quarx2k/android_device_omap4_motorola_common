@@ -66,7 +66,6 @@ PRODUCT_PACKAGES += \
 
 # Release utilities
 PRODUCT_PACKAGES += \
-    common_releaseutils-check_kernel \
     common_releaseutils-finalize_release \
     common_releaseutils-mke2fs \
     common_releaseutils-tune2fs
@@ -94,12 +93,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-
-# Prebuilts
-PRODUCT_COPY_FILES += \
-    $(COMMON_FOLDER)/prebuilt/bin/strace:system/bin/strace \
-    $(COMMON_FOLDER)/prebuilt/bin/omapconf:system/bin/omapconf \
-    $(COMMON_FOLDER)/prebuilt/bin/omapconf-dump.sh:system/bin/omapconf-dump.sh
 
 # Kexec files
 ifeq ($(BOARD_USES_KEXEC),true)

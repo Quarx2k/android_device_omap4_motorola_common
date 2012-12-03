@@ -46,6 +46,14 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_ARCH_VARIANT_CPU := cortex-a9
 TARGET_ARCH_VARIANT_FPU := neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
+# CodeAurora Optimizations: msm8960: Improve performance of memmove, bcopy, and memmove_words
+# added by twa_priv
+TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
+TARGET_USE_KRAIT_PLD_SET := true
+TARGET_KRAIT_BIONIC_PLDOFFS := 10
+TARGET_KRAIT_BIONIC_PLDTHRESH := 10
+TARGET_KRAIT_BIONIC_BBTHRESH := 64
+TARGET_KRAIT_BIONIC_PLDSIZE := 64
 
 # Kernel/Module Build
 TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.4.3
@@ -83,10 +91,6 @@ WIFI_FIRMWARE_LOADER             := ""
 COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
 endif
 
-# adb has root
-ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
-ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
-
 # Audio
 BOARD_USES_GENERIC_AUDIO := false
 BOARD_USES_ALSA_AUDIO := true
@@ -98,7 +102,6 @@ COMMON_GLOBAL_CFLAGS += -DICS_AUDIO_BLOB
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_BCM := true
 
 # Recovery
 BUILD_BOOTMENU_STANDALONE := true
@@ -116,11 +119,9 @@ TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /data/.recovery_mode; sync;"
 TARGET_RECOVERY_PRE_COMMAND_CLEAR_REASON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
-
 # Graphics
 BOARD_EGL_CFG := device/motorola/common/prebuilt/etc/egl.cfg
 USE_OPENGL_RENDERER := true
-
 
 # Makefile variable and C/C++ macro to recognise DOMX version
 ifdef ENHANCED_DOMX
@@ -174,15 +175,6 @@ endif
 TARGET_PROVIDES_RELEASETOOLS := true
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/motorola/common/releasetools/common_ota_from_target_files
 TARGET_CUSTOM_RELEASETOOL := ./vendor/motorola/common/tools/squisher
-
-# CodeAurora Optimizations: msm8960: Improve performance of memmove, bcopy, and memmove_words
-# added by twa_priv
-TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
-TARGET_USE_KRAIT_PLD_SET := true
-TARGET_KRAIT_BIONIC_PLDOFFS := 10
-TARGET_KRAIT_BIONIC_PLDTHRESH := 10
-TARGET_KRAIT_BIONIC_BBTHRESH := 64
-TARGET_KRAIT_BIONIC_PLDSIZE := 64
 
 # Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
