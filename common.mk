@@ -57,8 +57,7 @@ PRODUCT_PACKAGES += \
     TQS_D_1.7_127x.ini \
     crda \
     regulatory.bin \
-    calibrator \
-    busybox
+    calibrator 
 
 # Wifi Direct and WPAN
 PRODUCT_PACKAGES += \
@@ -68,37 +67,18 @@ PRODUCT_PACKAGES += \
 # Bluetooth
 PRODUCT_PACKAGES += \
     uim-sysfs \
-    kfmapp \
-    FmRxApp \
-    FmTxApp \
-    FmService \
-    libfmradio \
-    fmradioif \
-    com.ti.fm.fmradioif.xml \
     libbt-vendor
 
 # Release utilities
 PRODUCT_PACKAGES += \
-    common_releaseutils-check_kernel \
     common_releaseutils-finalize_release \
     common_releaseutils-mke2fs \
     common_releaseutils-tune2fs
 
 PRODUCT_PACKAGES += \
     evtest \
-    camera_test \
-    Camera \
-    CameraOMAP4 \
-    Superuser \
-    su \
     DockAudio \
     parse_hdmi_edid
-
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory \
-    FileManager \
-    MusicFX \
-    Apollo
 
 # Permissions files
 PRODUCT_COPY_FILES += \
@@ -119,7 +99,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
-    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
 
 # WLAN firmware
 PRODUCT_COPY_FILES += \
@@ -134,24 +113,6 @@ PRODUCT_COPY_FILES += \
     $(COMMON_FOLDER)/firmware/wpan/bluetooth/TIInit_7.2.31.bts:system/etc/firmware/TIInit_7.2.31.bts \
     $(COMMON_FOLDER)/firmware/wpan/bluetooth/TIInit_7.6.15.bts:system/etc/firmware/TIInit_7.6.15.bts \
     $(COMMON_FOLDER)/firmware/wpan/bluetooth/TIInit_12.7.27.bts:system/etc/firmware/TIInit_12.7.27.bts \
-    $(COMMON_FOLDER)/firmware/wpan/fmradio/fmc_ch8_1283.2.bts:system/etc/firmware/fmc_ch8_1283.2.bts \
-    $(COMMON_FOLDER)/firmware/wpan/fmradio/fm_rx_ch8_1283.2.bts:system/etc/firmware/fm_rx_ch8_1283.2.bts \
-    $(COMMON_FOLDER)/firmware/wpan/fmradio/fm_tx_ch8_1283.2.bts:system/etc/firmware/fm_tx_ch8_1283.2.bts \
-    $(COMMON_FOLDER)/firmware/wpan/fmradio/fmc_init_1273.2.bts:system/etc/firmware/fmc_init_1273.2.bts \
-    $(COMMON_FOLDER)/firmware/wpan/fmradio/fm_rx_init_1273.2.bts:system/etc/firmware/fm_rx_init_1273.2.bts \
-    $(COMMON_FOLDER)/firmware/wpan/fmradio/fm_tx_init_1273.2.bts:system/etc/firmware/fm_tx_init_1273.2.bts \
-    $(COMMON_FOLDER)/firmware/wpan/fmradio/fm_tx_ch8_1273.1.bts:system/etc/firmware/fm_tx_ch8_1273.1.bts \
-    $(COMMON_FOLDER)/firmware/wpan/fmradio/fm_tx_ch8_1273.2.bts:system/etc/firmware/fm_tx_ch8_1273.2.bts
-
-# Prebuilts
-PRODUCT_COPY_FILES += \
-    $(COMMON_FOLDER)/prebuilt/bin/strace:system/bin/strace \
-    $(COMMON_FOLDER)/prebuilt/bin/omapconf:system/bin/omapconf \
-    $(COMMON_FOLDER)/prebuilt/bin/omapconf-dump.sh:system/bin/omapconf-dump.sh
-
-# Phone settings
-PRODUCT_COPY_FILES += \
-    $(COMMON_FOLDER)/prebuilt/etc/spn-conf.xml:system/etc/spn-conf.xml
 
 # Kexec files
 ifeq ($(BOARD_USES_KEXEC),true)
