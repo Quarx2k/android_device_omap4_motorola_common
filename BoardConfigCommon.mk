@@ -1,35 +1,18 @@
-# inherit from common
--include device/motorola/kexec/BoardConfig.mk
-
-# ICS Kernel Hacks
-ifneq ($(BOARD_USES_KEXEC),true)
 # includes fix for framebuffer
-TARGET_SPECIFIC_HEADER_PATH := device/motorola/common/include-stock
-endif
+TARGET_SPECIFIC_HEADER_PATH := device/motorola/common/include
 
 # Camera
 USE_CAMERA_STUB := false
 TI_CAMERAHAL_DEBUG_ENABLED := true
 
-ifeq ($(BOARD_USES_KEXEC),true)
-BOARD_USES_TI_CAMERA_HAL := false
-else
-BOARD_USES_TI_CAMERA_HAL := true
-BOARD_HAS_LOCKED_BOOTLOADER := true
-BOARD_USES_HWC_POST2FINDFB := true
-endif
-
 OMAP_ENHANCEMENT := true
-ifeq ($(BOARD_USES_KEXEC),true)
-OMAP_ENHANCEMENT_MULTIGPU := true
-endif
 #OMAP_ENHANCEMENT_BURST_CAPTURE := true
 #OMAP_ENHANCEMENT_S3D := true
 #OMAP_ENHANCEMENT_CPCAM := true
 #OMAP_ENHANCEMENT_VTC := true
 #USE_ITTIAM_AAC := true
 #BLTSVILLE_ENHANCEMENT :=true
-#ENHANCED_DOMX := true
+ENHANCED_DOMX := true
 
 # inherit from the proprietary version
 -include vendor/motorola/common/BoardConfigVendor.mk
@@ -79,7 +62,7 @@ BOARD_MTP_DEVICE := "/dev/mtp"
 # Connectivity - Wi-Fi
 USES_TI_MAC80211 := true
 ifdef USES_TI_MAC80211
-WPA_SUPPLICANT_VERSION           := VER_0_8_X
+WPA_SUPPLICANT_VERSION           := VER_0_8_X_TI
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
 BOARD_HOSTAPD_DRIVER             := NL80211
@@ -104,14 +87,11 @@ COMMON_GLOBAL_CFLAGS += -DICS_AUDIO_BLOB
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_HAVE_BLUETOOTH_TI := true
 BOARD_BLUETOOTH_TTY_DEVICE := /dev/ttyO1
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/common/bluetooth
 
 # Recovery
-BUILD_BOOTMENU_STANDALONE := true
-#BOARD_HAS_LOCKED_BOOTLOADER := true
-BOARD_HAS_WEBTOP := true
+BOARD_HAS_LOCKED_BOOTLOADER := true
 TARGET_PREBUILT_RECOVERY_KERNEL := device/motorola/common/recovery-kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_UMS_LUNFILE := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
@@ -127,11 +107,12 @@ TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 # Graphics
 BOARD_EGL_CFG := device/motorola/common/prebuilt/etc/egl.cfg
 USE_OPENGL_RENDERER := true
+TARGET_HAS_CUSTOM_LIBION := true
 
 # Makefile variable and C/C++ macro to recognise DOMX version
 ifdef ENHANCED_DOMX
     COMMON_GLOBAL_CFLAGS += -DENHANCED_DOMX
-    DOMX_PATH := hardware/ti/domx
+    DOMX_PATH := device/motorola/common/domx
 else
     DOMX_PATH := hardware/ti/omap4xxx/domx
 endif
