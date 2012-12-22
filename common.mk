@@ -95,10 +95,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     evtest \
     DockAudio \
-<<<<<<< HEAD
-    parse_hdmi_edid
-=======
->>>>>>> 42a575f... common board setup changes
 
 # Permissions files
 PRODUCT_COPY_FILES += \
