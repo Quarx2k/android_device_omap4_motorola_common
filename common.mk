@@ -84,7 +84,8 @@ PRODUCT_PACKAGES += \
     smc_pa_ctrl \
     tf_daemon \
     libtf_crypto_sst \
-    libmm_osal
+    libmm_osal \
+    camera.omap4
 
 # Release utilities
 PRODUCT_PACKAGES += \
