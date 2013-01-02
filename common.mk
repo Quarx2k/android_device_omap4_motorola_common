@@ -57,6 +57,10 @@ PRODUCT_PACKAGES += \
     regulatory.bin \
     calibrator 
 
+# Wifi
+PRODUCT_PACKAGES += \
+    libnetcmdiface
+
 # Wifi Direct and WPAN
 PRODUCT_PACKAGES += \
     ti_wfd_libs \
