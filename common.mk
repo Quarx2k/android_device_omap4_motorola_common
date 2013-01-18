@@ -26,6 +26,8 @@ PRODUCT_PACKAGES += \
     audio.usb.default
 
 PRODUCT_PACKAGES += \
+    audio_policy.omap4 \
+    libasound \
     libaudioutils \
     libaudiohw_legacy
 
