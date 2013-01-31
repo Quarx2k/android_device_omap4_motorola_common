@@ -2,7 +2,7 @@
 BOARD_VENDOR := motorola-omap4
 
 # includes fix for framebuffer
-TARGET_SPECIFIC_HEADER_PATH := device/motorola/common/include
+TARGET_SPECIFIC_HEADER_PATH := device/motorola/omap4-common/include
 
 # Camera
 USE_CAMERA_STUB := false
@@ -18,7 +18,7 @@ OMAP_ENHANCEMENT := true
 BOARD_USE_TI_ENHANCED_DOMX := true
 
 # inherit from the proprietary version
--include vendor/motorola/common/BoardConfigVendor.mk
+-include vendor/motorola/omap4-common/BoardConfigVendor.mk
 
 # Processor
 TARGET_NO_BOOTLOADER := true
@@ -91,11 +91,11 @@ BOARD_USE_HARDCODED_FAST_TRACK_LATENCY_WHEN_DENIED := 160
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/common/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/omap4-common/bluetooth
 
 # Recovery
 BOARD_HAS_LOCKED_BOOTLOADER := true
-TARGET_PREBUILT_RECOVERY_KERNEL := device/motorola/common/recovery-kernel
+TARGET_PREBUILT_RECOVERY_KERNEL := device/motorola/omap4-common/recovery-kernel
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_UMS_LUNFILE := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
 BOARD_ALWAYS_INSECURE := true
@@ -107,15 +107,16 @@ TARGET_RECOVERY_PRE_COMMAND_CLEAR_REASON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 
 # Graphics
-BOARD_EGL_CFG := device/motorola/common/prebuilt/etc/egl.cfg
+BOARD_EGL_CFG := device/motorola/omap4-common/prebuilt/etc/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_USE_CUSTOM_LIBION := true
 
 # Makefile variable and C/C++ macro to recognise DOMX version
 ifdef BOARD_USE_TI_ENHANCED_DOMX
     BOARD_USE_TI_DUCATI_H264_PROFILE := true
-    TI_CUSTOM_DOMX_PATH := device/motorola/common/domx
-    DOMX_PATH := device/motorola/common/domx
+    TI_CUSTOM_DOMX_PATH := device/motorola/omap4-common/domx
+    DOMX_PATH := device/motorola/omap4-common/domx
+    ENHANCED_DOMX := true
 else
     DOMX_PATH := hardware/ti/omap4xxx/domx
 endif
@@ -162,8 +163,8 @@ endif
 
 # OTA Packaging
 TARGET_PROVIDES_RELEASETOOLS := true
-TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/motorola/common/releasetools/common_ota_from_target_files
-TARGET_CUSTOM_RELEASETOOL := ./vendor/motorola/common/tools/squisher
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/motorola/omap4-common/releasetools/common_ota_from_target_files
+TARGET_CUSTOM_RELEASETOOL := ./vendor/motorola/omap4-common/tools/squisher
 
 # Bootanimation
 TARGET_BOOTANIMATION_PRELOAD := true
